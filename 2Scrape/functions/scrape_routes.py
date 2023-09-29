@@ -3,7 +3,7 @@ import re
 import pandas as pd
 from bs4 import BeautifulSoup
 
-''' A collection of functions to scrape the route data in a given location'''
+''' A collection of functions to scrape the route data in a given bouldering location'''
 
 def find_crag_title(soup):
     title = soup.find('title')
@@ -32,7 +32,7 @@ def create_crag_df(url):
     data = find_crag_routes(soup,title)
     crag_df = pd.DataFrame(data, columns = ['location','grade','route','class'])
 
-    return crag_df
+    return (crag_df,title)
 
 
 
